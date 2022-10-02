@@ -1,0 +1,28 @@
+.styled__button {
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 2em;
+    background-color: var(--primaryColor);
+    color: var(--bg);
+    font-weight: 900;
+    font-size: 2rem;
+    height: fit-content;
+    cursor: pointer;
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+.styled__button:hover {
+    background-color: var(--bgLinkHover);
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}
+
+.styled__button:active {
+    background-color: var(--bgLinkPressed);
+    -webkit-transition: .3s;
+    -o-transition: .3s;
+    transition: .3s;
+}

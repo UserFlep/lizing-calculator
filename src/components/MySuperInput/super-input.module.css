@@ -1,0 +1,85 @@
+/*Убираем стрелки у input number*/
+input.mini__input::-webkit-outer-spin-button,
+input.mini__input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number].mini__input {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+.text__field {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.text__field__super__input {
+    padding: .8rem;
+    background-color: var(--bgInputPassive);
+    border: 2px solid var(--bgInputPassive);
+    border-radius: 1rem;
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+
+.mini__input {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    width: 100%;
+    color: var(--textColor);
+    font-weight: 900;
+    font-size: 2rem;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/*.mini__input:disabled,*/
+/*.mini__input[readonly] {*/
+/*    color: lightgray;*/
+/*}*/
+
+.text__field__super__input:focus-within {
+    background-color: transparent;
+}
+.text__field__super__input:focus-within > .mini__input {
+    outline: 0;
+}
+
+.mark {
+    flex-basis: auto;
+    color: var(--textColor);
+    font-weight: 900;
+    font-size: 2rem;
+}
+
+.range {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: absolute;
+    height: auto;
+    margin: 0 1em;
+    left: 0;
+    right: 0;
+    bottom: -2px;/*parent border size*/
+}

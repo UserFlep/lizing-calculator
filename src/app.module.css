@@ -1,0 +1,129 @@
+.app {
+  background: var(--bg);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-height: 100%;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 3rem;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.title {
+  max-width: 753px;
+  font-size: 3.4rem;
+  font-weight: 900;
+  line-height: 3rem;
+  margin: 0 0 2rem 0;
+}
+
+.content {
+  display: -ms-grid;
+  display: grid;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -ms-grid-rows: auto 2.5rem auto;
+  grid-template-areas:  "a b c"
+                        "d e f";
+  -ms-grid-columns: 1fr 2.5rem 1fr 2.5rem 1fr;
+  grid-template-columns: repeat(3,1fr);
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: end;
+  gap: 2.5rem;
+}
+
+@media (max-width: 1300px) {
+  .container {
+    max-width: none;
+    margin: 0;
+  }
+  .content {
+    grid-template-areas:  "a a" "b b" "c c" "d e" "f .";
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (max-width: 800px) {
+  .content {
+    grid-template-areas:  "a" "b" "c" "d" "e" "f";
+    -ms-grid-columns: 1fr;
+    grid-template-columns: 1fr;
+  }
+  .title {
+    width: 180px;
+  }
+}
+
+@media (max-width: 520px) {
+  html {
+    font-size: 14px;
+  }
+  span, input, button {
+    font-size: 22px !important;
+  }
+  .title {
+    font-size: 2.4rem;
+    line-height: 30px;
+  }
+  .container {
+    padding: 20px;
+  }
+}
+
+.bordered__tab {
+  background-color: var(--bgTab);
+  border-radius: 1rem;
+  margin: .5rem;
+  padding: 1rem;
+  width: -moz-min-content;
+  width: min-content;
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.tab__input {
+  border: 0;
+  outline: 0;
+  width: 1.4em;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: var(--textColor);
+  font-weight: 900;
+  font-size: 2rem;
+  background-color: transparent;
+}
+
+/*Убираем стрелки у input number*/
+input.tab__input::-webkit-outer-spin-button,
+input.tab__input::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number].tab__input {
+  -moz-appearance:textfield; /* Firefox */
+}

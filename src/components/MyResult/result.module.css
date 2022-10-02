@@ -1,0 +1,20 @@
+.result__container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    gap: .5rem;
+}
+.styled__result {
+    font-weight: 900;
+    font-size: 3.4rem;
+    color: var(--textColor);
+}
+
+.tab {
+    line-height: 100%;
+    vertical-align: text-top;
+}
