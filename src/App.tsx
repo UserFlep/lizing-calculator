@@ -4,6 +4,7 @@ import MySuperInput from "./components/MySuperInput/MySuperInput";
 import MyButton from "./UI/MyButton/MyButton";
 import MyResult from "./components/MyResult/MyResult";
 import MySpinner from "./UI/MySpinner/MySpinner";
+import axios from "axios";
 
 interface ISuperInput {
     name: string,
@@ -62,7 +63,8 @@ function App() {
     const [months, setMonths] = useState<number>(data.months.initial);
     const [monthPay, setMonthPay] = useState<number>(0);
     const [amount, setAmount] = useState<number>(0);
-    const [isLoading, setIsLoading] = useState<boolean>();
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [isDisabled, setIsDisabled] = useState<boolean>(false)
 
     useEffect(()=>{
         const pay = Math.trunc((price - initial) * ((0.035 * Math.pow((1 + 0.035), months)) / (Math.pow((1 + 0.035), months) - 1)));
@@ -156,6 +158,31 @@ function App() {
         }
     }
 
+    const submitHandler = () => {
+        setIsDisabled(true)
+        setIsLoading(true)
+        axios.post("https://eoj3r7f3r4ef6v4.m.pipedream.net",
+            {
+                price,
+                initialPercent,
+                initial,
+                months,
+                monthPay,
+                amount
+            }, {
+                headers: {
+                    'Content-type': 'application/json'
+                }}
+        ).then(result=> {
+            console.log(result)
+        }).catch((err)=>{
+            console.log(err)
+        }).finally(()=>{
+            setIsLoading(false)
+            setIsDisabled(false)
+        })
+    }
+
     return (
         <div className={classes.app}>
             <div className={classes.container}>
@@ -170,6 +197,7 @@ function App() {
                         max={data.price.max}
                         step={data.price.step}
                         tab={data.price.tab}
+                        readOnly={true}
                         value={price.toLocaleString()}
                         onChange={priceChangeHandler}
                     />
@@ -187,6 +215,7 @@ function App() {
                                 <input
                                     type="number"
                                     className={classes.tab__input}
+                                    readOnly={true}
                                     value={Math.trunc(initialPercent).toString()}
                                     onChange={initialPercentChangeHandler}
                                 />
@@ -212,10 +241,8 @@ function App() {
                     <MyResult style={{gridArea: 'e'}} title="Ежемесячный платеж от">{Math.trunc(monthPay).toLocaleString()}</MyResult>
                     <MyButton
                         style={{gridArea: "f"}}
-                        onClick={(e)=> {
-                            setIsLoading(true)
-                            setTimeout(()=>{setIsLoading(false)}, 5000)
-                        }}
+                        disabled={isDisabled}
+                        onClick={submitHandler}
                     >
                         {isLoading
                             ? <MySpinner/>
