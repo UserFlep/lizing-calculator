@@ -197,7 +197,6 @@ function App() {
                         max={data.price.max}
                         step={data.price.step}
                         tab={data.price.tab}
-                        readOnly={true}
                         value={price.toLocaleString()}
                         onChange={priceChangeHandler}
                     />
@@ -215,7 +214,6 @@ function App() {
                                 <input
                                     type="number"
                                     className={classes.tab__input}
-                                    readOnly={true}
                                     value={Math.trunc(initialPercent).toString()}
                                     onChange={initialPercentChangeHandler}
                                 />
