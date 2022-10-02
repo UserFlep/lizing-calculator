@@ -13,16 +13,21 @@
     transition: .3s;
 }
 
-.styled__button:hover {
+.styled__button:hover:enabled {
     background-color: var(--bgLinkHover);
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
 }
 
-.styled__button:active {
+.styled__button:active:enabled {
     background-color: var(--bgLinkPressed);
     -webkit-transition: .3s;
     -o-transition: .3s;
     transition: .3s;
+}
+
+.styled__button:disabled,
+.styled__button[readonly] {
+    opacity: 50%;
 }
