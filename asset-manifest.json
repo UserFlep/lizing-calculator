@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/lizing-calculator/static/css/main.66d96669.css",
-    "main.js": "/lizing-calculator/static/js/main.52ef8c6c.js",
+    "main.css": "/lizing-calculator/static/css/main.2464906d.css",
+    "main.js": "/lizing-calculator/static/js/main.595dd8a1.js",
     "static/media/Nekst-Bold.eot": "/lizing-calculator/static/media/Nekst-Bold.753a7c4c084c718c0281.eot",
     "static/media/Nekst-Bold.ttf": "/lizing-calculator/static/media/Nekst-Bold.cab6338caaec418b8de9.ttf",
     "static/media/Nekst-SemiBold.eot": "/lizing-calculator/static/media/Nekst-SemiBold.533603ee27c76da054e7.eot",
@@ -111,11 +111,11 @@
     "static/media/Gilroy-Regular.woff2": "/lizing-calculator/static/media/Gilroy-Regular.f6c9931fabe5a6eb3307.woff2",
     "static/media/Gilroy-Extrabold.woff2": "/lizing-calculator/static/media/Gilroy-Extrabold.5c5942d3e4d9a9645df4.woff2",
     "index.html": "/lizing-calculator/index.html",
-    "main.66d96669.css.map": "/lizing-calculator/static/css/main.66d96669.css.map",
-    "main.52ef8c6c.js.map": "/lizing-calculator/static/js/main.52ef8c6c.js.map"
+    "main.2464906d.css.map": "/lizing-calculator/static/css/main.2464906d.css.map",
+    "main.595dd8a1.js.map": "/lizing-calculator/static/js/main.595dd8a1.js.map"
   },
   "entrypoints": [
-    "static/css/main.66d96669.css",
-    "static/js/main.52ef8c6c.js"
+    "static/css/main.2464906d.css",
+    "static/js/main.595dd8a1.js"
   ]
 }
